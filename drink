@@ -1,7 +1,20 @@
 #!/usr/bin/env python
 
+import argparse
+import time
+
+from os.path import expanduser
+
+log_file = expanduser('~/Dropbox/lists/drinks.txt')
+
 def main():
-    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument('drink', choices=['coffee', 'tea'],
+                        help='the beverage you are drinking')
+    args = parser.parse_args()
+    log_handle = open(log_file, 'a')
+    log_handle.write('{}: {}\n'.format(int(time.time()), args.drink))
+    log_handle.close()
 
 if __name__ == '__main__':
     main()
