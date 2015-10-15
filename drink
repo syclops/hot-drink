@@ -13,7 +13,7 @@ def main():
                         help='the beverage you are drinking')
     args = parser.parse_args()
     log_handle = open(log_file, 'a')
-    log_handle.write('{}: {}\n'.format(int(time.time()), args.drink))
+    log_handle.write('{} {}\n'.format(int(time.time()), args.drink))
     log_handle.close()
 
 if __name__ == '__main__':
